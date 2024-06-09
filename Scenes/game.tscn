@@ -438,6 +438,5 @@ layer_0/tile_data = PackedInt32Array(2, 0, 0, 3, 0, 0, 65540, 0, 0, 65541, 0, 0,
 [node name="Player" parent="." instance=ExtResource("1_jvkt0")]
 position = Vector2(39, -8)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(39, -8)
+[node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
