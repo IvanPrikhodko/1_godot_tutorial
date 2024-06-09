@@ -431,6 +431,7 @@ sources/0 = SubResource("TileSetAtlasSource_lih2w")
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(1, 0)
 tile_set = SubResource("TileSet_fmdrt")
 format = 2
 layer_0/tile_data = PackedInt32Array(2, 0, 0, 3, 0, 0, 65540, 0, 0, 65541, 0, 0, 65537, 0, 0, 65536, 0, 0, 65542, 0, 0, 65543, 0, 0, 8, 0, 0, 9, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 589824, 0, 65549, 655360, 0, 65550, 720896, 0, 65551, 524288, 0, 65552, 524288, 0, 15, 393216, 0, 16, 393216, 0)
