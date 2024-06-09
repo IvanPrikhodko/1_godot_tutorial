@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjumageawggly"]
+[gd_scene load_steps=9 format=3 uid="uid://bjumageawggly"]
 
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_3td4d"]
 [ext_resource type="Texture2D" uid="uid://vcaxms4taye5" path="res://Assets/brackeys_platformer_assets/sprites/knight.png" id="1_sw2wa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1442o"]
@@ -43,9 +44,10 @@ radius = 5.09902
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(706, -10)
+script = ExtResource("1_3td4d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, -4)
+position = Vector2(3, -4)
 sprite_frames = SubResource("SpriteFrames_v04sl")
 animation = &"idle"
 autoplay = "idle"
