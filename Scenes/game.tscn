@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7qv85ukwn7xt"]
+[gd_scene load_steps=7 format=3 uid="uid://c7qv85ukwn7xt"]
 
 [ext_resource type="PackedScene" uid="uid://bjumageawggly" path="res://Scenes/Player.tscn" id="1_jvkt0"]
 [ext_resource type="Texture2D" uid="uid://ktv06al7iexg" path="res://Assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_h8m5n"]
+[ext_resource type="PackedScene" uid="uid://b51umpio51wsg" path="res://Scenes/platform.tscn" id="3_ng82u"]
+[ext_resource type="PackedScene" uid="uid://bf4rrr1fjvo1u" path="res://Scenes/platformZ.tscn" id="4_66p8w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lih2w"]
 texture = ExtResource("2_h8m5n")
@@ -441,3 +443,9 @@ position = Vector2(39, -8)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
+
+[node name="Platform" parent="." instance=ExtResource("3_ng82u")]
+position = Vector2(96, -14)
+
+[node name="Platform2" parent="." instance=ExtResource("4_66p8w")]
+position = Vector2(190, -17)
