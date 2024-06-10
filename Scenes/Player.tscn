@@ -43,6 +43,7 @@ animations = [{
 radius = 5.09902
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 5
 position = Vector2(706, -10)
 script = ExtResource("1_3td4d")
 
