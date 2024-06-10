@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c7qv85ukwn7xt"]
+[gd_scene load_steps=15 format=3 uid="uid://c7qv85ukwn7xt"]
 
 [ext_resource type="PackedScene" uid="uid://bjumageawggly" path="res://Scenes/Player.tscn" id="1_jvkt0"]
 [ext_resource type="Texture2D" uid="uid://ktv06al7iexg" path="res://Assets/brackeys_platformer_assets/sprites/world_tileset.png" id="2_h8m5n"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bf4rrr1fjvo1u" path="res://Scenes/platformZ.tscn" id="4_66p8w"]
 [ext_resource type="PackedScene" uid="uid://cgbxysshhjfte" path="res://Scenes/platformMove.tscn" id="5_h1h4w"]
 [ext_resource type="PackedScene" uid="uid://bmqxelygaeboy" path="res://Scenes/coin.tscn" id="6_l4rtt"]
+[ext_resource type="PackedScene" uid="uid://dd3pax466va4k" path="res://Scenes/kill_zone.tscn" id="7_wabpo"]
+[ext_resource type="Script" path="res://Scenes/kill_zone.gd" id="8_egtv2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lih2w"]
 texture = ExtResource("2_h8m5n")
@@ -469,6 +471,8 @@ _data = {
 "RESET": SubResource("Animation_fdaph")
 }
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_18ipx"]
+
 [node name="Game" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -482,6 +486,8 @@ position = Vector2(39, -8)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
+limit_bottom = 70
+limit_smoothed = true
 
 [node name="Platform" parent="." instance=ExtResource("3_ng82u")]
 position = Vector2(96, -14)
@@ -506,3 +512,13 @@ position = Vector2(189, -28)
 
 [node name="Coin3" parent="." instance=ExtResource("6_l4rtt")]
 position = Vector2(345, -7)
+
+[node name="KillZone" parent="." instance=ExtResource("7_wabpo")]
+position = Vector2(53, 54)
+script = ExtResource("8_egtv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("WorldBoundaryShape2D_18ipx")
+
+[connection signal="body_entered" from="KillZone" to="Player" method="_on_kill_zone_body_entered"]
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
